@@ -1,4 +1,6 @@
-# Trilha do Lume
+# Portfolio
+
+Portfólio interativo em 3D feito com React Three Fiber.
 
     npm install
     npm run dev      # desenvolvimento
