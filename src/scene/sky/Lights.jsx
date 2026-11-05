@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { LIVE, U } from '../core/env'
 
-export function Lights({ quality }) {
+export function Lights({ tier }) {
   const sun = useRef()
   const hemi = useRef()
   const fill = useRef()
@@ -25,14 +25,14 @@ export function Lights({ quality }) {
     fill.current.color.copy(U.uHorizon.value)
     fill.current.intensity = 0.25 + U.uDay.value * 0.2
   })
-  const size = quality === 'low' ? 1024 : 2048
+  const size = tier === 2 ? 2048 : 1024
   return (
     <>
       <primitive object={target} />
       <directionalLight
         ref={sun}
         target={target}
-        castShadow
+        castShadow={tier > 0}
         shadow-mapSize={[size, size]}
         shadow-camera-left={-34}
         shadow-camera-right={34}

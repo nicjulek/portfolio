@@ -56,6 +56,12 @@
   box-shadow: 0 0 0 4px rgba(255, 211, 107, 0.4), 0 0 14px #ffb347;
   pointer-events: none;
 }
+@media (max-width: 640px) {
+  .trail { left: max(10px, env(safe-area-inset-left, 0px)); right: max(10px, env(safe-area-inset-right, 0px)); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding: 6px 8px; gap: 6px; }
+  .step { width: 40px; height: 40px; font-size: 28px; }
+  .mark { width: 18px; height: 18px; }
+  .mark::before { content: ''; position: absolute; inset: -12px -6px; }
+}
 .night .trail { background: rgba(24, 32, 56, 0.82); color: #f1ead6; }
 .night .mark { background: #1a2340; border-color: #ffd36b; }
 .night .mark.on { background: #ffd36b; }
