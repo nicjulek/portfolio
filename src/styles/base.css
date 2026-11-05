@@ -1,0 +1,22 @@
+:root {
+  --paper: #fbf5e6;
+  --paper-glass: rgba(251, 245, 230, 0.9);
+  --ink: #2f3a2c;
+  --ink-soft: #6b735f;
+  --moss: #5d8f45;
+  --persimmon: #d9693b;
+  --line: rgba(47, 58, 44, 0.16);
+  --display: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Arial Rounded MT Bold', sans-serif;
+  --text: 'Shippori Mincho', 'Hiragino Mincho ProN', Georgia, serif;
+  --util: 'Kosugi Maru', 'Zen Maru Gothic', 'Arial Rounded MT Bold', sans-serif;
+  --hand: 'Klee One', 'Kosugi Maru', 'Segoe Print', cursive;
+  --card: #fbf6e9;
+  --card-deep: #f3ead3;
+  color-scheme: light;
+}
+html, body, #root { height: 100%; }
+body { background: #ece3c9; color: var(--ink); font-family: var(--text); overflow: hidden; overscroll-behavior: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible { outline: 2px solid var(--persimmon); outline-offset: 3px; }
+.app { position: relative; height: 100%; }
+.app canvas { touch-action: none; }

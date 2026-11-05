@@ -1,0 +1,31 @@
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background: rgba(12, 10, 8, 0.88);
+  backdrop-filter: blur(6px);
+  padding-block: calc(56px + env(safe-area-inset-top, 0px)) calc(24px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(64px, env(safe-area-inset-left, 0px));
+  padding-right: max(64px, env(safe-area-inset-right, 0px));
+  animation: fade 0.25s ease;
+}
+@keyframes fade { from { opacity: 0; } }
+.lightbox figure { margin: 0; display: grid; gap: 12px; justify-items: center; max-width: 100%; max-height: 100%; min-height: 0; animation: rise 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.lightbox img { max-width: 100%; max-height: calc(100vh - 170px); object-fit: contain; border-radius: 6px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); }
+.lightbox figcaption { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 4px 12px; color: #f4ecd8; text-align: center; }
+.lb-title { font-family: var(--display); font-weight: 700; font-size: 18px; }
+.lb-note { font-family: var(--util); font-size: 13px; opacity: 0.75; }
+.lb-count { font-family: var(--util); font-size: 12px; opacity: 0.55; font-variant-numeric: tabular-nums; }
+.lb-nav, .lb-close { position: absolute; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(244, 236, 216, 0.25); background: rgba(244, 236, 216, 0.08); color: #f4ecd8; font-size: 28px; line-height: 1; display: grid; place-items: center; padding: 0; transition: background 0.2s ease; }
+.lb-nav:hover, .lb-close:hover { background: rgba(244, 236, 216, 0.22); }
+.lb-nav { top: 50%; margin-top: -22px; }
+.lb-nav.prev { left: max(12px, env(safe-area-inset-left, 0px)); }
+.lb-nav.next { right: max(12px, env(safe-area-inset-right, 0px)); }
+.lb-close { top: calc(12px + env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); }
+@media (max-width: 640px) {
+  .lightbox { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .lb-nav { top: auto; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); margin-top: 0; }
+  .lightbox img { max-height: calc(100vh - 210px); }
+}

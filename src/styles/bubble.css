@@ -1,0 +1,33 @@
+.bubble {
+  position: relative;
+  max-width: 220px;
+  width: max-content;
+  background: #fffaf0;
+  color: #2f3a2c;
+  font-family: 'Zen Maru Gothic', 'Arial Rounded MT Bold', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 9px 13px;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(30, 40, 20, 0.25);
+  transform: translateY(-50%);
+  animation: pop 0.35s cubic-bezier(0.2, 1.4, 0.4, 1);
+  user-select: none;
+}
+.bubble::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background: #fffaf0;
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 3px;
+}
+@keyframes pop { from { transform: translateY(-50%) scale(0.6); opacity: 0; } }
+@media (max-width: 640px) {
+  .bubble { max-width: 170px; font-size: 13px; }
+}
+.bubble.small { font-size: 13px; padding: 6px 11px; max-width: 200px; }
