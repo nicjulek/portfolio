@@ -119,6 +119,7 @@ export function Icon({ name, size = 18 }) {
       </>
     ),
     arrow: <path d="M7 17L17 7M9 7h8v8" />,
+    chevron: <path d="M6 15l6-6 6 6" />,
     copy: (
       <>
         <rect x="8" y="8" width="12" height="12" rx="2" />

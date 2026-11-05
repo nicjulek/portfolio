@@ -173,10 +173,10 @@ export const STOPS = [
       en: 'Concept art for a game in development. I turn narrative and gameplay ideas into visual references that guide the whole production.'
     },
     art: [
-      { src: artCidade, title: { pt: 'A cidade vertical', en: 'The vertical city' }, note: { pt: 'Cenário · pintura digital', en: 'Environment · digital painting' } },
+      { src: artCidade, title: { pt: 'Cidade neon', en: 'Neon city' }, note: { pt: 'Concept art de cenário · pintura digital', en: 'Environment concept art · digital painting' } },
       { src: artMenu, title: { pt: 'Tela inicial do jogo', en: 'Title screen' }, note: { pt: 'Ilustração do menu principal', en: 'Main menu illustration' } },
-      { src: artPersonagens, title: { pt: 'Viajantes', en: 'Travelers' }, note: { pt: 'Estudos de personagem', en: 'Character studies' } },
-      { src: artItem, title: { pt: 'Peça recuperada', en: 'Salvaged part' }, note: { pt: 'Design de item', en: 'Item design' } }
+      { src: artPersonagens, title: { pt: 'Variações de mercadores', en: 'Merchant variations' }, note: { pt: 'Estudos de personagem', en: 'Character studies' } },
+      { src: artItem, title: { pt: 'Braço do personagem com encaixe', en: 'Character arm with socket' }, note: { pt: 'Design de item', en: 'Item design' } }
     ],
     tags: { pt: ['Concept art', 'Personagens', 'Cenários', 'Itens', 'Pintura digital'], en: ['Concept art', 'Characters', 'Environments', 'Items', 'Digital painting'] }
   },

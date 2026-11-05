@@ -68,6 +68,7 @@
 }
 @keyframes stamp { from { transform: scale(0.4) rotate(-25deg); opacity: 0; } }
 .head-text { display: grid; gap: 2px; min-width: 0; position: relative; z-index: 1; }
+.card-toggle { display: none; }
 .kicker { margin: 0; font-family: var(--util); font-size: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; opacity: 0.95; }
 .stop-no { background: rgba(255, 250, 240, 0.92); color: var(--accent); border-radius: 999px; padding: 1px 8px; font-variant-numeric: tabular-nums; font-weight: 700; }
 .place { margin: 0; font-family: var(--hand); font-weight: 600; font-size: 21px; line-height: 1.2; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.15); }
@@ -165,6 +166,30 @@ a.link > svg { color: var(--accent); }
   .project-desc { font-size: 13px; }
   .gallery { gap: 12px 10px; }
   .artworks { gap: 6px; }
+
+  .card-head { cursor: pointer; }
+  .card-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    border-radius: 999px;
+    padding: 7px 10px 7px 12px;
+    background: rgba(255, 250, 240, 0.92);
+    color: var(--accent);
+    font-family: var(--util);
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .card-toggle svg { transition: transform 0.25s ease; }
+  .card.open .card-toggle svg { transform: rotate(180deg); }
+  .card:not(.open) .card-body,
+  .card:not(.open) .deckle { display: none; }
+  .card:not(.open) .card-head { padding-bottom: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .card { animation: none; }
