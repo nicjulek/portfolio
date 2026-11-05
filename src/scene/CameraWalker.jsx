@@ -4,6 +4,7 @@ import * as THREE from 'three'
 import { STOPS } from '../data/stops'
 import { OBJ, STREAM_Z, baseHeight, pathX, stopT, zOfT } from '../world/terrain'
 import { U } from './core/env'
+import { CARD } from './core/cardState'
 
 const STOP_TS = STOPS.map(stopT)
 const EYE_HEIGHT = 1.72
@@ -53,9 +54,9 @@ export function CameraWalker({ progress, onStop, onMove }) {
       first.current = false
     } else look.lerp(ahead, 1 - Math.exp(-dt * 3))
     camera.lookAt(look)
-    // celular em pe: o card cobre a parte de baixo, entao sobe o enquadramento
+    // celular em pe com o card aberto: o card cobre a parte de baixo, entao sobe o enquadramento
     const narrow = size.width < 700 && size.height > size.width
-    const want = narrow ? Math.min(1, Math.max(0, (bw - 0.3) / 0.4)) * 0.2 : 0
+    const want = narrow && CARD.open ? Math.min(1, Math.max(0, (bw - 0.3) / 0.4)) * 0.2 : 0
     shift.current += (want - shift.current) * (1 - Math.exp(-dt * 3))
     if (shift.current > 0.002) {
       camera.setViewOffset(size.width, size.height, 0, shift.current * size.height, size.width, size.height)
