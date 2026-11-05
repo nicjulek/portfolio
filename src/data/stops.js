@@ -44,8 +44,8 @@ export const STOPS = [
       en: 'I work on both sides of the screen: I write the code and draw what shows up on it. I like well-organized back-ends and interfaces that make you want to explore, like this trail.'
     },
     facts: {
-      pt: ['Desenvolvimento full-stack', 'UI/UX com olhar de ilustradora', 'Concept art para jogos'],
-      en: ['Full-stack development', 'UI/UX with an illustrator’s eye', 'Concept art for games']
+      pt: ['Desenvolvimento full-stack', 'Pesquisa em IA: detecção de deepfakes e violência digital de gênero', 'UI/UX com olhar de ilustradora', 'Concept art para jogos'],
+      en: ['Full-stack development', 'AI research: deepfake detection and gender-based digital violence', 'UI/UX with an illustrator’s eye', 'Concept art for games']
     },
     tags: []
   },
@@ -102,6 +102,16 @@ export const STOPS = [
     body: { pt: 'Projetos para estudar, testar ideias ou resolver um problema meu.', en: 'Projects to learn, test ideas or solve a problem of my own.' },
     projects: [
       {
+        name: { pt: 'Detecção de deepfakes · TCC', en: 'Deepfake detection · Thesis' },
+        lang: 'Python',
+        color: '#3572a5',
+        desc: {
+          pt: 'Detector de deepfakes em vídeo com EfficientNet-B0, unido a uma análise sociotécnica da violência digital contra mulheres. Dados divididos por identidade para evitar vazamento: F1 de 0,87 e recall de 0,84 em nível de vídeo na FaceForensics++ (c40).',
+          en: 'Video deepfake detector built on EfficientNet-B0, paired with a sociotechnical analysis of digital violence against women. Identity-based data split to prevent leakage: 0.87 F1 and 0.84 recall at video level on FaceForensics++ (c40).'
+        },
+        stack: 'PyTorch · MTCNN · Grad-CAM++'
+      },
+      {
         name: 'Jardim do Foco',
         lang: 'Kotlin',
         color: '#a97bff',
@@ -137,10 +147,10 @@ export const STOPS = [
           en: 'The trail you’re walking, with a real-time sky and a soundtrack generated in the browser.'
         },
         stack: 'React Three Fiber · shaders',
-        url: 'https://github.com/nicjulek'
+        url: 'https://github.com/nicjulek/portfolio'
       }
     ],
-    tags: ['React', 'Angular', 'TypeScript', 'Node.js', 'Django', 'Laravel', 'Kotlin', 'Three.js']
+    tags: ['React', 'Angular', 'TypeScript', 'Node.js', 'Django', 'Laravel', 'Kotlin', 'Three.js', 'Python', 'PyTorch']
   },
   {
     id: 'atelie',
