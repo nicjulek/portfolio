@@ -1,0 +1,24 @@
+.hint {
+  position: fixed;
+  left: 50%;
+  top: 42%;
+  transform: translateX(-50%);
+  margin: 0;
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 22px;
+  color: #fffdf6;
+  text-shadow: 0 2px 14px rgba(40, 50, 30, 0.5);
+  pointer-events: none;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  animation: breathe 3s ease-in-out infinite;
+}
+.hint span { font-family: var(--util); font-weight: 400; font-size: 14px; }
+@keyframes breathe { 50% { opacity: 0.6; } }
+@media (prefers-reduced-motion: reduce) {
+  .hint { animation: none; }
+}
