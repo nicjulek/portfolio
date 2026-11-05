@@ -116,26 +116,32 @@ export const STOPS = [
         lang: 'Kotlin',
         color: '#a97bff',
         desc: {
-          pt: 'App Android que transforma tempo de foco em jardinagem: uma planta cresce enquanto você se concentra.',
-          en: 'Android app that turns focus time into gardening: a plant grows while you concentrate.'
+          pt: 'App Android contra a procrastinação: uma planta virtual cresce em tempo real enquanto você se concentra, e cada sessão de foco traz uma frase motivacional buscada numa API externa. O estado da planta fica salvo no banco local com Room, então o progresso não se perde ao fechar o app.',
+          en: 'Android app against procrastination: a virtual plant grows in real time while you focus, and each session brings a motivational quote fetched from an external API. The plant’s state is saved locally with Room, so progress survives closing the app.'
         },
-        stack: { pt: 'Android · Room · API de frases', en: 'Android · Room · quotes API' },
+        stack: { pt: 'Android · Room · SharedPreferences · API REST', en: 'Android · Room · SharedPreferences · REST API' },
         url: 'https://github.com/nicjulek/jardimdofoco'
       },
       {
         name: 'Terra',
         lang: 'JavaScript',
         color: '#e9c34a',
-        desc: { pt: 'O planeta Terra em 3D com textura, iluminação e controles de câmera.', en: 'Planet Earth in 3D with textures, lighting and camera controls.' },
-        stack: 'Three.js',
+        desc: {
+          pt: 'Estudo de computação gráfica no navegador: o planeta Terra em 3D com textura realista e iluminação, que dá para girar com o mouse, aproximar e afastar com zoom e explorar com controles de câmera.',
+          en: 'A computer graphics study in the browser: planet Earth in 3D with realistic texture and lighting, which you can rotate with the mouse, zoom in and out of, and explore with camera controls.'
+        },
+        stack: 'Three.js · JavaScript · WebGL',
         url: 'https://github.com/nicjulek/Terra'
       },
       {
         name: { pt: 'Sistema de Hotel', en: 'Hotel System' },
         lang: 'PHP',
         color: '#7a86c2',
-        desc: { pt: 'Sistema de gestão hoteleira feito em equipe.', en: 'Hotel management system built as a team.' },
-        stack: 'Laravel · Vite',
+        desc: {
+          pt: 'Sistema web de gestão hoteleira feito em equipe de quatro pessoas: cadastro de clientes, acompanhantes e quartos, reservas com edição e cancelamento, check-in e check-out e histórico das hospedagens. Organizado em MVC, com o banco versionado por migrations.',
+          en: 'Hotel management web system built by a team of four: guest, companion and room records, bookings with editing and cancellation, check-in and check-out, and a stay history. Built with MVC, with the database versioned through migrations.'
+        },
+        stack: 'Laravel · Blade · Eloquent',
         url: 'https://github.com/guilhermegoebel/sistemahotel'
       },
       {
@@ -143,10 +149,10 @@ export const STOPS = [
         lang: 'React',
         color: '#61b3d4',
         desc: {
-          pt: 'A trilha que você está percorrendo, com céu na hora real e trilha sonora gerada no navegador.',
-          en: 'The trail you’re walking, with a real-time sky and a soundtrack generated in the browser.'
+          pt: 'A trilha que você está percorrendo: o céu segue a hora real, dá para ligar a chuva, a música é gerada no próprio navegador e cada parada conta um pedaço da minha história. Grama, riacho e a fadinha Lume usam shaders próprios, e a qualidade gráfica se ajusta sozinha ao aparelho.',
+          en: 'The trail you’re walking: the sky follows the real time, you can turn on the rain, the music is generated in the browser and each stop tells part of my story. Grass, stream and Lume the fairy use custom shaders, and the graphics quality adapts to your device.'
         },
-        stack: 'React Three Fiber · shaders',
+        stack: 'React Three Fiber · GLSL · Web Audio',
         url: 'https://github.com/nicjulek/portfolio'
       }
     ],

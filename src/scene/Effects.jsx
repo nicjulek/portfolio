@@ -1,9 +1,10 @@
 import { EffectComposer, Bloom, Vignette, ToneMapping, HueSaturation } from '@react-three/postprocessing'
 import { ToneMappingMode } from 'postprocessing'
 
-export function Effects({ low }) {
+export function Effects({ tier }) {
+  if (tier === 0) return null
   return (
-    <EffectComposer multisampling={low ? 0 : 4} disableNormalPass>
+    <EffectComposer multisampling={tier === 2 ? 4 : 0} disableNormalPass>
       <Bloom mipmapBlur intensity={0.65} luminanceThreshold={0.9} luminanceSmoothing={0.2} radius={0.65} />
       <HueSaturation saturation={0.08} />
       <ToneMapping mode={ToneMappingMode.ACES_FILMIC} />

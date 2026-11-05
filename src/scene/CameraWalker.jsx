@@ -16,7 +16,8 @@ export function CameraWalker({ progress, onStop, onMove }) {
   const last = useRef(-2)
   const first = useRef(true)
   const sway = useRef(0)
-  useFrame(({ camera, pointer }, dt) => {
+  const shift = useRef(0)
+  useFrame(({ camera, pointer, size }, dt) => {
     const before = cur.current
     cur.current += (progress.current - cur.current) * (1 - Math.exp(-dt * 2.4))
     const speed = Math.abs(cur.current - before) / Math.max(dt, 0.001)
@@ -52,6 +53,16 @@ export function CameraWalker({ progress, onStop, onMove }) {
       first.current = false
     } else look.lerp(ahead, 1 - Math.exp(-dt * 3))
     camera.lookAt(look)
+    // celular em pe: o card cobre a parte de baixo, entao sobe o enquadramento
+    const narrow = size.width < 700 && size.height > size.width
+    const want = narrow ? Math.min(1, Math.max(0, (bw - 0.3) / 0.4)) * 0.2 : 0
+    shift.current += (want - shift.current) * (1 - Math.exp(-dt * 3))
+    if (shift.current > 0.002) {
+      camera.setViewOffset(size.width, size.height, 0, shift.current * size.height, size.width, size.height)
+    } else if (camera.view && camera.view.enabled) {
+      camera.clearViewOffset()
+    }
+
     const idx = bw > 0.45 ? best : -1
     if (idx !== last.current) {
       last.current = idx

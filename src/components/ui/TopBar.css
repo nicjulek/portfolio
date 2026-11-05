@@ -62,6 +62,16 @@
   .controls { flex-wrap: nowrap; gap: 6px; }
   .top h1 { font-size: 24px; }
 }
+@media (max-width: 480px) {
+  .top { flex-direction: column; gap: 10px; top: calc(12px + env(safe-area-inset-top, 0px)); }
+  .top h1 { font-size: 23px; white-space: nowrap; }
+  .top .role { font-size: 12.5px; margin-top: 3px; }
+  .controls { justify-content: flex-start; }
+  .icon-btn { width: 36px; height: 36px; }
+  .icon-btn svg { width: 18px; height: 18px; }
+  .pill.time { padding: 6px 12px; }
+  .pill.time .clock { font-size: 14px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .icon-btn.on svg { animation: none; }
 }
