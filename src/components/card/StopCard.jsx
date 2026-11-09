@@ -31,7 +31,7 @@ export function StopCard({ s: raw, index }) {
         {s.facts && <Facts items={s.facts} />}
         {s.projects && <Projects items={s.projects} />}
         {s.art && <Artworks items={s.art} />}
-        {s.gallery && <Gallery count={s.gallery} />}
+        {s.drawings && <Gallery items={s.drawings} />}
         {s.contact && <Contact />}
         {s.tags.length > 0 && <Tags items={s.tags} />}
       </div>

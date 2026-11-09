@@ -61,7 +61,7 @@ export const LUME = {
   pt: {
     stops: {
       ponto: 'Olha quem está esperando o ônibus com a gente! Faz carinho nela.',
-      antena: 'Aquela antena no telhado conversa com satélites!',
+      antena: 'Daqui ela configura as antenas que vão nos ônibus. Elas conversam com satélites!',
       prefeitura: 'O relógio da prefeitura marca a sua hora de verdade.',
       galpao: 'O notebook ficou ligado. Alguém deixou um bug aberto…',
       atelie: 'Cheiro de tinta fresca! E tem patinhos no riacho, viu?',
@@ -79,7 +79,7 @@ export const LUME = {
   en: {
     stops: {
       ponto: 'Look who’s waiting for the bus with us! Give her some pets.',
-      antena: 'That antenna on the roof talks to satellites!',
+      antena: 'From here she sets up the antennas that go on the buses. They talk to satellites!',
       prefeitura: 'The hall’s clock shows your real time.',
       galpao: 'The laptop was left on. Someone left a bug open…',
       atelie: 'Smell that fresh paint! And there are ducklings in the creek, see?',

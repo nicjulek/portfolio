@@ -2,6 +2,17 @@ import artMenu from '../assets/knockup/menu.webp'
 import artCidade from '../assets/knockup/cidade.webp'
 import artItem from '../assets/knockup/item.webp'
 import artPersonagens from '../assets/knockup/personagens.webp'
+import desVestido from '../assets/varal/vestido.png'
+import desTerceiroOlho from '../assets/varal/terceiro-olho.png'
+import desRetrato from '../assets/varal/retrato.png'
+import desCoroa from '../assets/varal/coroa-de-flores.png'
+
+export const DRAWINGS = [
+  { src: desVestido, note: { pt: 'Caneta esferográfica', en: 'Ballpoint pen' } },
+  { src: desCoroa, note: { pt: 'Caneta esferográfica', en: 'Ballpoint pen' } },
+  { src: desTerceiroOlho, note: { pt: 'Caneta esferográfica', en: 'Ballpoint pen' } },
+  { src: desRetrato, note: { pt: 'Caneta esferográfica', en: 'Ballpoint pen' } }
+]
 
 export const tr = (v, lang) => (v && typeof v === 'object' && !Array.isArray(v) && ('pt' in v || 'en' in v) ? v[lang] ?? v.pt : v)
 
@@ -55,17 +66,17 @@ export const STOPS = [
     z: 16,
     side: -1,
     accent: '#3f7fa6',
-    name: { pt: 'Casa da antena', en: 'Antenna house' },
+    name: { pt: 'Central das antenas', en: 'Antenna station' },
     kicker: { pt: 'Estágio · mai. 2026 – atual', en: 'Internship · May 2026 – present' },
     title: { pt: 'Estagiária de TI', en: 'IT Intern' },
     org: 'Princesa dos Campos',
     body: {
-      pt: 'Cuido de infraestrutura e desenvolvimento ao mesmo tempo: num dia estou no telhado configurando uma antena, no outro estou no código de um app.',
-      en: 'I handle infrastructure and development at the same time: one day I’m on a roof setting up an antenna, the next I’m in the code of an app.'
+      pt: 'Trabalho entre infraestrutura e desenvolvimento: configuro e monitoro as antenas Starlink da frota de ônibus e desenvolvo apps e integrações para a empresa.',
+      en: 'I work between infrastructure and development: I configure and monitor the Starlink antennas on the bus fleet and build apps and integrations for the company.'
     },
     facts: {
-      pt: ['Instalação e monitoramento de antenas Starlink', 'Apps mobile com Flutter', 'Integrações com o Protheus e bancos PostgreSQL'],
-      en: ['Installing and monitoring Starlink antennas', 'Mobile apps with Flutter', 'Integrations with Protheus and PostgreSQL databases']
+      pt: ['Configuração e monitoramento das antenas Starlink dos ônibus', 'Apps mobile com Flutter', 'Integrações com o Protheus e bancos PostgreSQL'],
+      en: ['Configuring and monitoring the buses’ Starlink antennas', 'Mobile apps with Flutter', 'Integrations with Protheus and PostgreSQL databases']
     },
     tags: ['Flutter', 'Flask', 'PostgreSQL', 'Protheus', 'Starlink', 'Web design']
   },
@@ -191,7 +202,7 @@ export const STOPS = [
     title: { pt: 'Desenhos secando ao vento', en: 'Drawings drying in the wind' },
     org: { pt: 'Trabalhos pessoais', en: 'Personal work' },
     body: { pt: 'Personagens, paisagens e estudos que desenho fora do trabalho.', en: 'Characters, landscapes and studies I draw outside of work.' },
-    gallery: 4,
+    drawings: DRAWINGS,
     tags: { pt: ['Ilustração digital', 'Personagens', 'Paisagens'], en: ['Digital illustration', 'Characters', 'Landscapes'] }
   },
   {

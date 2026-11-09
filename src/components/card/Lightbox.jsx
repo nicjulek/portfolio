@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { useUI } from '../../data/i18n'
 
-export function Lightbox({ items, at, onClose, onGo }) {
+export function Lightbox({ items, at, onClose, onGo, credit }) {
   const t = useUI()
   const it = items[at]
   useEffect(() => {
@@ -16,13 +16,13 @@ export function Lightbox({ items, at, onClose, onGo }) {
     return () => window.removeEventListener('keydown', key)
   }, [at, items, onClose, onGo])
   return createPortal(
-    <div className="lightbox" role="dialog" aria-modal="true" aria-label={it.title} onClick={onClose}>
+    <div className="lightbox" role="dialog" aria-modal="true" aria-label={it.title ?? it.note} onClick={onClose}>
       <figure onClick={(e) => e.stopPropagation()} key={at}>
-        <img src={it.src} alt={it.title} />
+        <img src={it.src} alt={it.title ?? it.note} />
         <figcaption>
-          <span className="lb-title">{it.title}</span>
+          {it.title && <span className="lb-title">{it.title}</span>}
           <span className="lb-note">
-            {it.note} · KnockUp Game Studio
+            {credit ? `${it.note} · ${credit}` : it.note}
           </span>
           <span className="lb-count">
             {at + 1}/{items.length}

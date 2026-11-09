@@ -20,7 +20,7 @@ export function Artworks({ items }) {
           </li>
         ))}
       </ul>
-      {open >= 0 && <Lightbox items={items} at={open} onClose={() => setOpen(-1)} onGo={setOpen} />}
+      {open >= 0 && <Lightbox items={items} at={open} onClose={() => setOpen(-1)} onGo={setOpen} credit="KnockUp Game Studio" />}
     </>
   )
 }

@@ -114,7 +114,8 @@
 .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 14px; padding: 8px 4px 2px; }
 .polaroid { margin: 0; padding: 8px 8px 6px; background: #fffdf8; box-shadow: 0 6px 14px rgba(40, 50, 30, 0.16); transform: rotate(var(--tilt)); position: relative; transition: transform 0.25s ease; }
 .polaroid:hover { transform: rotate(0deg) scale(1.03); }
-.photo { display: block; aspect-ratio: 4 / 3; max-width: 100%; background: radial-gradient(70% 60% at 30% 35%, rgba(255, 255, 255, 0.55), transparent 70%), radial-gradient(80% 70% at 80% 90%, color-mix(in srgb, var(--wash) 70%, #2f3a2c 30%), transparent 70%), var(--wash); }
+.photo { display: block; width: 100%; padding: 0; border: 0; background: #efe6d2; cursor: zoom-in; }
+.photo img { display: block; width: 100%; height: auto; }
 .polaroid figcaption { font-family: var(--hand); font-size: 13px; text-align: center; padding-top: 4px; color: var(--ink-soft); }
 .pin { position: absolute; top: -6px; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--accent); box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25), inset -2px -2px 0 rgba(0, 0, 0, 0.15); }
 .links { list-style: none; margin: 2px 0 0; padding: 0; display: grid; gap: 8px; }
