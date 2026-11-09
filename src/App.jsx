@@ -21,7 +21,9 @@ export default function App() {
   const marker = useRef()
 
   const onMove = (t) => {
-    if (marker.current) marker.current.style.left = `${t * 100}%`
+    if (!marker.current) return
+    marker.current.style.left = `${t * 100}%`
+    marker.current.parentElement.style.setProperty('--p', `${t * 100}%`) // pinta a linha ate onde ja andou
   }
 
   const current = stop >= 0 ? STOPS[stop] : null

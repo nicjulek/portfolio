@@ -11,7 +11,7 @@ export function Gallery({ items }) {
     <>
       <div className="gallery">
         {items.map((d, i) => (
-          <figure key={i} className="polaroid" style={{ '--tilt': `${TILTS[i % 4]}deg` }}>
+          <figure key={i} className={`polaroid${d.wide ? ' wide' : ''}`} style={{ '--tilt': `${TILTS[i % 4] * (d.wide ? 0.4 : 1)}deg` }}>
             <span className="pin" />
             <button className="photo" onClick={() => setOpen(i)} aria-label={`${t.enlarge} ${i + 1}/${items.length}`}>
               <img src={d.src} alt={d.note} loading="lazy" />

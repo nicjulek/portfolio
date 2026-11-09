@@ -9,9 +9,9 @@ import desCoroa from '../assets/varal/coroa-de-flores.png'
 
 export const DRAWINGS = [
   { src: desVestido, note: { pt: 'Caneta esferográfica', en: 'Ballpoint pen' } },
-  { src: desCoroa, note: { pt: 'Caneta esferográfica', en: 'Ballpoint pen' } },
+  { src: desCoroa, wide: true, note: { pt: 'Caneta esferográfica', en: 'Ballpoint pen' } },
   { src: desTerceiroOlho, note: { pt: 'Caneta esferográfica', en: 'Ballpoint pen' } },
-  { src: desRetrato, note: { pt: 'Caneta esferográfica', en: 'Ballpoint pen' } }
+  { src: desRetrato, wide: true, note: { pt: 'Caneta esferográfica', en: 'Ballpoint pen' } }
 ]
 
 export const tr = (v, lang) => (v && typeof v === 'object' && !Array.isArray(v) && ('pt' in v || 'en' in v) ? v[lang] ?? v.pt : v)

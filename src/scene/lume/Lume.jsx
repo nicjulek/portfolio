@@ -19,6 +19,9 @@ export function Lume({ stop, hour, lang = 'pt' }) {
   const wings = useRef()
   const light = useRef()
   const halo = useRef()
+  const smile = useRef()
+  const mouth = useRef()
+  const talkAmt = useRef(0)
   const posRef = useRef(new THREE.Vector3())
   const [hover, setHover] = useState(false)
   const [say, setSay] = useState(null)
@@ -138,8 +141,11 @@ export function Lume({ stop, hour, lang = 'pt' }) {
     eyes.current.children[0].visible = happy.current < 0.5
     eyes.current.children[1].visible = happy.current >= 0.5
     eyes.current.children[2].children.forEach((m) => (m.material.opacity = 0.25 + happy.current * 0.6))
-    const talk = say ? Math.abs(Math.sin(t * 12)) : 0
-    eyes.current.children[3].scale.set(1, 1 - talk * 0.6, 1)
+    talkAmt.current += ((say ? 1 : 0) - talkAmt.current) * (1 - Math.exp(-dt * 10))
+    const open = say ? (0.3 + 0.7 * Math.abs(Math.sin(t * 11))) * (0.75 + 0.25 * Math.sin(t * 3.3)) : 0 // abre e fecha tipo silabas
+    smile.current.visible = talkAmt.current < 0.5
+    mouth.current.visible = talkAmt.current >= 0.5
+    mouth.current.scale.set(1, 0.2 + open * 0.8, 1)
 
     const speed = hover ? 30 : 20
     const f = Math.sin(t * speed)
@@ -210,9 +216,17 @@ export function Lume({ stop, hour, lang = 'pt' }) {
                 </mesh>
               ))}
             </group>
-            <mesh geometry={geos.smile} position={[0, -0.03, 0.155]} rotation={[0, 0, Math.PI]}>
+            <mesh ref={smile} geometry={geos.smile} position={[0, -0.03, 0.155]} rotation={[0, 0, Math.PI]}>
               <meshBasicMaterial color="#2b1d14" />
             </mesh>
+            <group ref={mouth} position={[0, -0.036, 0.149]} visible={false}>
+              <mesh geometry={geos.eye} scale={[0.019, 0.017, 0.009]}>
+                <meshBasicMaterial color="#3a1c16" />
+              </mesh>
+              <mesh geometry={geos.eye} position={[0, -0.008, 0.004]} scale={[0.011, 0.006, 0.006]}>
+                <meshBasicMaterial color="#ff8a9a" />
+              </mesh>
+            </group>
           </group>
           <Burst trigger={pops} />
         </group>
