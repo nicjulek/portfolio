@@ -1,5 +1,21 @@
+import { createContext, useContext } from 'react'
+
 // 0 = leve, 1 = media, 2 = alta
 const KEY = 'portfolio-qualidade'
+
+export const QualityContext = createContext(2)
+
+export const useTier = () => useContext(QualityContext)
+
+// quanto do pelo em camadas cada nivel desenha (1 = todas as camadas)
+export const FUR = [0.4, 0.7, 1]
+
+// arvores: quantidade, detalhe da copa e se projetam sombra
+export const TREES = [
+  { count: 70, detail: 1, shadow: false },
+  { count: 100, detail: 1, shadow: true },
+  { count: 120, detail: 2, shadow: true }
+]
 
 export const DPR = [
   [0.75, 1],

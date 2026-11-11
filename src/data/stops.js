@@ -127,8 +127,8 @@ export const STOPS = [
         lang: 'TypeScript',
         color: '#3178c6',
         desc: {
-          pt: 'Finanças pessoais a partir do extrato do Nubank. Importa CSV e OFX sem duplicar nada, categoriza sozinho, mostra para onde foi o dinheiro e encontra as assinaturas que se repetem, avisando por e-mail antes de cada cobrança e quando alguma fica mais cara. A importação roda por eventos em segundo plano e a tela acompanha cada etapa em tempo real.',
-          en: 'Personal finance from your Nubank statement. It imports CSV and OFX without duplicates, categorizes on its own, shows where the money went and finds recurring subscriptions, emailing you before each charge and when one gets more expensive. Imports run in the background through events, and the screen follows each step in real time.'
+          pt: 'Finanças pessoais a partir do extrato de qualquer banco. Importa CSV e OFX sem duplicar nada, categoriza sozinho, mostra para onde foi o dinheiro e encontra as assinaturas que se repetem, avisando por e-mail antes de cada cobrança e quando alguma fica mais cara. A importação roda por eventos em segundo plano e a tela acompanha cada etapa em tempo real.',
+          en: 'Personal finance from any bank statement. It imports CSV and OFX without duplicates, categorizes on its own, shows where the money went and finds recurring subscriptions, emailing you before each charge and when one gets more expensive. Imports run in the background through events, and the screen follows each step in real time.'
         },
         stack: 'React · NestJS · PostgreSQL · Tailwind · Playwright',
         url: 'https://github.com/nicjulek/tostao'

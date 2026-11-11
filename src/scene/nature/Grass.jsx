@@ -73,31 +73,55 @@ function blade() {
   return g
 }
 
+// a grama e dividida em faixas ao longo da trilha (eixo z). Cada faixa tem a
+// propria esfera envolvente, entao o que fica atras da camera nem vai para a GPU.
+const Z0 = -70
+const Z_LEN = 118
+const BAND = 10
+// folga para a altura da lamina, o vento (inclusive na chuva) e o empurrao do jogador
+const PAD = 2
+
 export function Grass({ count = 60000, avoid }) {
-  const geo = useMemo(() => {
-    const g = blade()
+  const geos = useMemo(() => {
+    const base = blade()
     const r = rng(12)
-    const off = new Float32Array(count * 3)
-    const par = new Float32Array(count * 4)
+    const bands = Array.from({ length: Math.ceil(Z_LEN / BAND) }, () => ({ off: [], par: [] }))
     let n = 0
     let guard = 0
     while (n < count && guard++ < count * 6) {
-      const z = -70 + r() * 118
+      const z = Z0 + r() * Z_LEN
       const side = r() < 0.5 ? -1 : 1
       const dist = 1.15 + Math.pow(r(), 1.6) * 34
       const x = pathX(z) + side * dist
       if (Math.abs(z - STREAM_Z) < 1.5) continue
       if (avoid(x, z)) continue
       if (dist > 14 && r() < 0.45) continue
-      off.set([x, height(x, z) - 0.02, z], n * 3)
+      const b = bands[Math.min(bands.length - 1, Math.floor((z - Z0) / BAND))]
+      b.off.push(x, height(x, z) - 0.02, z)
       const edge = dist < 1.9 ? 0.55 : 1
-      par.set([(0.35 + r() * 0.55) * edge, r() * Math.PI * 2, r(), 0.07 + r() * 0.06], n * 4)
+      b.par.push((0.35 + r() * 0.55) * edge, r() * Math.PI * 2, r(), 0.07 + r() * 0.06)
       n++
     }
-    g.setAttribute('aOffset', new THREE.InstancedBufferAttribute(off.subarray(0, n * 3), 3))
-    g.setAttribute('aParams', new THREE.InstancedBufferAttribute(par.subarray(0, n * 4), 4))
-    g.instanceCount = n
-    return g
+    const box = new THREE.Box3()
+    const v = new THREE.Vector3()
+    return bands
+      .filter((b) => b.off.length > 0)
+      .map((b) => {
+        const g = new THREE.InstancedBufferGeometry()
+        // a lamina em si e compartilhada; so os dados por instancia mudam
+        g.setAttribute('position', base.attributes.position)
+        g.setIndex(base.index)
+        const off = new Float32Array(b.off)
+        g.setAttribute('aOffset', new THREE.InstancedBufferAttribute(off, 3))
+        g.setAttribute('aParams', new THREE.InstancedBufferAttribute(new Float32Array(b.par), 4))
+        g.instanceCount = off.length / 3
+        box.makeEmpty()
+        for (let i = 0; i < off.length; i += 3) box.expandByPoint(v.fromArray(off, i))
+        box.expandByScalar(PAD)
+        g.boundingBox = box.clone()
+        g.boundingSphere = box.getBoundingSphere(new THREE.Sphere())
+        return g
+      })
   }, [count, avoid])
   const mat = useMemo(
     () =>
@@ -122,5 +146,5 @@ export function Grass({ count = 60000, avoid }) {
       }),
     []
   )
-  return <mesh geometry={geo} material={mat} frustumCulled={false} />
+  return geos.map((g, i) => <mesh key={`${count}-${i}`} geometry={g} material={mat} />)
 }
