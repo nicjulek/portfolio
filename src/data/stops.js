@@ -123,15 +123,59 @@ export const STOPS = [
         stack: 'PyTorch · MTCNN · Grad-CAM++'
       },
       {
+        name: 'Tostão',
+        lang: 'TypeScript',
+        color: '#3178c6',
+        desc: {
+          pt: 'Finanças pessoais a partir do extrato do Nubank. Importa CSV e OFX sem duplicar nada, categoriza sozinho, mostra para onde foi o dinheiro e encontra as assinaturas que se repetem, avisando por e-mail antes de cada cobrança e quando alguma fica mais cara. A importação roda por eventos em segundo plano e a tela acompanha cada etapa em tempo real.',
+          en: 'Personal finance from your Nubank statement. It imports CSV and OFX without duplicates, categorizes on its own, shows where the money went and finds recurring subscriptions, emailing you before each charge and when one gets more expensive. Imports run in the background through events, and the screen follows each step in real time.'
+        },
+        stack: 'React · NestJS · PostgreSQL · Tailwind · Playwright',
+        url: 'https://github.com/nicjulek/tostao'
+      },
+      {
+        name: 'Questlog',
+        lang: 'TypeScript',
+        color: '#3178c6',
+        desc: {
+          pt: 'Rastreador de jogos e conquistas em que cada jogo vira uma constelação e cada conquista, uma estrela que acende ao ser desbloqueada. Tem biblioteca com status e notas, guias escritos num editor de texto rico, estatísticas e perfil público. API e front compartilham os mesmos schemas de validação.',
+          en: 'A game and achievement tracker where each game becomes a constellation and each achievement a star that lights up when unlocked. It has a library with status and ratings, guides written in a rich text editor, stats and a public profile. The API and the front end share the same validation schemas.'
+        },
+        stack: 'React · Express · Drizzle · PostgreSQL · Docker',
+        url: 'https://github.com/nicjulek/questlog'
+      },
+      {
+        name: 'Cartógrafo',
+        lang: 'TypeScript',
+        color: '#3178c6',
+        desc: {
+          pt: 'Gerador de mapas de mundos fictícios no estilo de mapa antigo. Você esboça a ilha com um pincel e ele desenha relevo, rios, biomas, reinos, cidades e estradas a partir de uma semente. Dá para nomear cada lugar, escrever lendas e compartilhar o mundo inteiro por link, sem servidor.',
+          en: 'A fantasy world map generator in an old-map style. You sketch the island with a brush and it draws terrain, rivers, biomes, kingdoms, cities and roads from a seed. You can name every place, write legends and share the whole world through a link, with no server.'
+        },
+        stack: { pt: 'React · SVG · Web Workers · Geração procedural', en: 'React · SVG · Web Workers · Procedural generation' },
+        url: 'https://github.com/nicjulek/cartografo'
+      },
+      {
         name: 'Jardim do Foco',
         lang: 'Kotlin',
         color: '#a97bff',
         desc: {
-          pt: 'App Android contra a procrastinação: uma planta virtual cresce em tempo real enquanto você se concentra, e cada sessão de foco traz uma frase motivacional buscada numa API externa. O estado da planta fica salvo no banco local com Room, então o progresso não se perde ao fechar o app.',
-          en: 'Android app against procrastination: a virtual plant grows in real time while you focus, and each session brings a motivational quote fetched from an external API. The plant’s state is saved locally with Room, so progress survives closing the app.'
+          pt: 'App Android contra a procrastinação: uma planta virtual cresce enquanto você se concentra e murcha se você sair do app por mais de 10 segundos. Cada sessão rende pontos, dias seguidos dão bônus, e os pontos compram novas plantas na loja. O histórico mostra a semana num gráfico interativo, e as frases motivacionais vêm de uma API externa.',
+          en: 'Android app against procrastination: a virtual plant grows while you focus and wilts if you leave the app for more than 10 seconds. Each session earns points, streaks give a bonus, and points buy new plants in the store. The history shows your week in an interactive chart, and motivational quotes come from an external API.'
         },
-        stack: { pt: 'Android · Room · SharedPreferences · API REST', en: 'Android · Room · SharedPreferences · REST API' },
+        stack: 'MVVM · Room · Retrofit · Material 3',
         url: 'https://github.com/nicjulek/jardimdofoco'
+      },
+      {
+        name: { pt: 'Guia de Conquistas', en: 'Achievement Guides' },
+        lang: 'TypeScript',
+        color: '#3178c6',
+        desc: {
+          pt: 'Guias de conquistas de GRIS, Chrono Trigger, Outer Wilds e Disco Elysium, com uma página para cada jogo e checklist para marcar o progresso. Começou como trabalho final de Desenvolvimento Web em HTML e CSS e depois foi migrado para React.',
+          en: 'Achievement guides for GRIS, Chrono Trigger, Outer Wilds and Disco Elysium, with a page for each game and a checklist to track progress. It started as a final project for a Web Development course in HTML and CSS and was later migrated to React.'
+        },
+        stack: 'React · Vite · React Router',
+        url: 'https://github.com/nicjulek/guia-conquistas'
       },
       {
         name: 'Terra',
@@ -141,7 +185,7 @@ export const STOPS = [
           pt: 'Estudo de computação gráfica no navegador: o planeta Terra em 3D com textura realista e iluminação, que dá para girar com o mouse, aproximar e afastar com zoom e explorar com controles de câmera.',
           en: 'A computer graphics study in the browser: planet Earth in 3D with realistic texture and lighting, which you can rotate with the mouse, zoom in and out of, and explore with camera controls.'
         },
-        stack: 'Three.js · JavaScript · WebGL',
+        stack: 'Three.js · WebGL',
         url: 'https://github.com/nicjulek/Terra'
       },
       {
@@ -167,7 +211,7 @@ export const STOPS = [
         url: 'https://github.com/nicjulek/portfolio'
       }
     ],
-    tags: ['React', 'Angular', 'TypeScript', 'Node.js', 'Django', 'Laravel', 'Kotlin', 'Three.js', 'Python', 'PyTorch']
+    tags: ['React', 'Angular', 'TypeScript', 'Node.js', 'NestJS', 'PostgreSQL', 'Django', 'Laravel', 'Kotlin', 'Three.js', 'Python', 'PyTorch']
   },
   {
     id: 'atelie',
